@@ -98,12 +98,28 @@ const icons = [
 ];
 
 icons.forEach((icon) => {
-    console.log(icon.family, icon.prefix + icon.name );
-    document.getElementById('container').insertAdjacentHTML('beforeend', `
-    <div class = "icons">
-        <i class= "${icon.family} ${icon.prefix}${icon.name}"></i>
-    </div>
-    
-    `)
+
+    if(icon.type === 'animal') {
+        console.log('okey' + icon.family, icon.prefix + icon.name);
+        document.getElementById('container').insertAdjacentHTML('beforeend', `
+        <div class = "icons">
+            <i class= "${icon.family} ${icon.prefix}${icon.name}"" style="color:rgba(0, 0, 255, 1)"></i>
+        </div>
+        `) 
+    } else if (icon.type === 'vegetable') {
+        document.getElementById('container').insertAdjacentHTML('beforeend', `
+        <div class = "icons">
+            <i class= "${icon.family} ${icon.prefix}${icon.name}"" style="color:rgba(255, 165, 0, 1)"></i>
+        </div>
+        `) 
+    } else {
+        document.getElementById('container').insertAdjacentHTML('beforeend', `
+        <div class = "icons">
+            <i class= "${icon.family} ${icon.prefix}${icon.name}"" style="color:rgba(128, 0, 128, 1)"></i>
+        </div>
+        `)
+    }
     
 });
+
+
